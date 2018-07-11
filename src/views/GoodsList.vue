@@ -40,13 +40,13 @@
           <div class="accessory-list-wrap">
             <div class="accessory-list col-4">
               <ul>
-                <li v-for="(item,key) in goodsList">
+                <li v-for="(item,key) in goodsList.list">
                   <div class="pic">
-                    <a href="#"><img v-lazy="'/static/' + item.prodcutImg"></a>
+                    <a href="#"><img v-lazy="'/static/' + item.productImage"></a>
                   </div>
                   <div class="main">
                     <div class="name">{{item.productName}}</div>
-                    <div class="price">{{item.prodcutPrice}}</div>
+                    <div class="price">{{item.salePrice}}</div>
                     <div class="btn-area">
                       <a href="javascript:;" class="btn btn--m">加入购物车</a>
                     </div>
@@ -66,6 +66,8 @@
 <script>
   import './../assets/css/base.css'
   import './../assets/css/product.css'
+  import './../assets/css/login.css'
+  import './../assets/css/checkout.css'
   import NavFooter from '@/components/NavFooter'
   import NavHeader from '@/components/NavHeader'
   import NavBread from '@/components/NavBread'
@@ -103,7 +105,13 @@
       methods:{
         getGoodsList () {
           axios.get('/goods').then((res) => {
-            this.goodsList=res.data.result
+            let response=res.data
+            if(response.status=='0'){
+              this.goodsList=res.data.result;
+            }else{
+              this.goodsList=[];
+            }
+
           })
         },
         showFilterPop(){
