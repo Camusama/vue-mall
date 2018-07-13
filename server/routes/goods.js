@@ -76,7 +76,7 @@ router.post("/addCart",function (req,res,next) {
         let goodsItem =''
         //如果商品已存在购物车，则加一
         userDoc.cartList.forEach(function (item) {
-          if(item.productId == productId){
+          if(item.productId === productId){
             goodsItem = item;
             item.productNum ++;
           }
@@ -91,7 +91,7 @@ router.post("/addCart",function (req,res,next) {
             }else{
               res.json({
                 status:'0',
-                msg:'',
+                msg:doc2,
                 result:'suc'
               })
             }
