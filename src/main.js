@@ -10,10 +10,28 @@ Vue.use(infiniteScroll)
 Vue.use(VueLazyLoad,{
   loading:'/static/loading-svg/loading-bars.svg'
 })
+const store = new Vuex.Store({
+  state:{
+    nickName:"",//用户名
+    cartCount:0 // 购物车数量
+  },
+  mutations:{
+    updateUserInfo(state,nickName){
+      state.nickName = nickName;
+    },
+    updateCartCount(state,cartCount) {
+      state.cartCount += cartCount;
+    },
+    initCartCount(state,cartCount){
+      state.cartCount = cartCount;
+    }
+  }
+});
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components:{
     App

@@ -21,9 +21,26 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//app.use('路径',路由文件)挂载，相当于把不同路由分离到文件中，文件里通过express.router()实现
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/goods', goods);
+//登录拦截，登录状态通过cookie里有没有userId判断，很粗糙
+app.use((req,res,next) => {
+  if(req.cookies.userId) {
+    next();
+  } else {
+    if( req.path==='/' ||req.originalUrl==='/users' || req.originalUrl==='/users/logout'|| req.path==='/goods') {
+      next();
+    } else {
+      res.json({
+        status:"10001",
+        msg:"当前未登陆",
+        result:""
+      })
+    }
+  }
+} );
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

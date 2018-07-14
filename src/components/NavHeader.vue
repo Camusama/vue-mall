@@ -70,7 +70,9 @@
         userName: "",
         userPwd: "",
         loginModalFlag: true,
-        errorTip: false
+        errorTip: false,
+        nickName:"",
+        cartCount:""
       }
     },
     mounted(){

@@ -4,7 +4,7 @@ require('./../utils/util'); // node语法 = import
 var User = require("./../models/users");
 var mongoose = require("mongoose");
 
-mongoose.connect('mongodb://imooc:dyx240030@119.29.108.188:27017/dumall');
+mongoose.connect('mongodb://39.108.180.157:27017/db_demo');
 mongoose.connection.on("connected",() => {
   console.log("Users-DB connected success");
 });
