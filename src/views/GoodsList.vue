@@ -9,7 +9,7 @@
         <div class="filter-nav">
           <span class="sortby">Sort by:</span>
           <a href="javascript:void(0)" class="default cur">Default</a>
-          <a href="javascript:void(0)" class="price" @click="sortGoods()">Price <svg class="icon icon-arrow-short"><use xlink:href="#icon-arrow-short"></use></svg></a>
+          <a href="javascript:void(0)" class="price" @click="sortGoods">Price <svg class="icon icon-arrow-short"><use xlink:href="#icon-arrow-short"></use></svg></a>
           <a href="javascript:void(0)"
              class="filterby stopPop"
              @click="showFilterPop">Filter by</a>
@@ -108,7 +108,7 @@
           goodsList:[],
           sortFlag:false,
           page:1,
-          pageSize:4,
+          pageSize:5,
           //页数，每页显示个数，排序
           busy:true,
           // loadmore插件

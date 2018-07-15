@@ -1,11 +1,10 @@
-var mongoose = require('mongoose')
-var Schema = mongoose.Schema;
-
-var userSchema = new Schema({
-  "userId":String,
-  "userName":String,
-  "userPwd":Array,
-  "orderList":Array,
+let mongoose = require("mongoose");
+let Schema = mongoose.Schema;
+let productSchema = new Schema({
+  "userId":{type:String},
+  "userName":{type:String},
+  "userPwd":{type:String},
+  "orderList":{type:Array},
   "cartList":[
     {
       "productId":String,
@@ -13,11 +12,19 @@ var userSchema = new Schema({
       "salePrice":String,
       "productImage":String,
       "checked":String,
-      "productNum":String
+      "productNum":Number
     }
   ],
-  "addressList":Array
-})
+  "addressList":[
+    {
+      "addressId" : String,
+      "userName" : String,
+      "streetName" : String,
+      "postCode" : String,
+      "tel" : String,
+      "isDefault" : Boolean
+    }
+  ]
+});
 
-module.exports = mongoose.model('user',userSchema);
-
+module.exports = mongoose.model("user",productSchema,"users");

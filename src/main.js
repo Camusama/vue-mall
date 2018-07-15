@@ -4,6 +4,10 @@ import router from './router'
 import VueLazyLoad from 'vue-lazyload'
 import infiniteScroll from 'vue-infinite-scroll'
 import Vuex from 'Vuex'
+import {currency} from "./util/currency"
+Vue.filter(
+  "currency",currency
+);
 
 Vue.config.productionTip = false
 

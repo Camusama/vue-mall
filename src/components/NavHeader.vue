@@ -16,9 +16,9 @@
         <a href="">
           <img class="navbar-brand-logo" src="">
         </a>
-        测试用户名:
+        用户名:admin
         <br/>
-        测试密码:
+        密码:123456
       </div>
       <div class="navbar-right-container" style="display: flex;">
         <div class="navbar-menu-container">
