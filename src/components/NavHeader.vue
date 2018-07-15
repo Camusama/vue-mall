@@ -13,10 +13,10 @@
     </symbol>
     <div class="navbar">
       <div class="navbar-left-container">
-        <a href="">
-          <img class="navbar-brand-logo" src="">
+        <a href="https://github.com/Camusama/vue-mall">
+          <img class="navbar-brand-logo" src="static/github.png">
         </a>
-        用户名:admin
+        用户名:Yang
         <br/>
         密码:123456
       </div>
@@ -102,7 +102,7 @@
           } else {
             // 没登录的话就跳到商品界面
 //            if(this.$route.path!='/goods') {
-//             this.$router.push('/goods');
+            this.$router.push('/');
 //            }
           }
         })
